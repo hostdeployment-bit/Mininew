@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI INCONNU XD V3 - WhatsApp Bot</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-box">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <h1>MINI INCONNU XD V3</h1>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginSection" class="form-section active">
+                <h2>Login to Your Account</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="email" id="loginEmail" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div class="oauth-buttons">
+                    <button class="btn btn-google" onclick="loginWithGoogle()">
+                        <i class="fab fa-google"></i> Continue with Google
+                    </button>
+                    <button class="btn btn-github" onclick="loginWithGithub()">
+                        <i class="fab fa-github"></i> Continue with GitHub
+                    </button>
+                </div>
+                <p>Don't have an account? <a href="#" onclick="showRegister()">Sign up</a></p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerSection" class="form-section">
+                <h2>Create Account</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <input type="text" id="registerName" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="registerEmail" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="registerPassword" placeholder="Password" required>
+                        <div class="password-strength" id="passwordStrength"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="registerConfirmPassword" placeholder="Confirm Password" required>
+                        <div class="error-message" id="passwordError">Passwords do not match</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="referralCode" placeholder="Referral Code (optional)">
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <label for="acceptTerms">I accept the terms and conditions</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </form>
+                <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+            </div>
+
+            <!-- Feature Highlights -->
+            <div class="feature-highlights">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Setup</h3>
+                    <p>Get your WhatsApp bot running in minutes</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure</h3>
+                    <p>Enterprise-grade security for your data</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Powerful</h3>
+                    <p>50+ commands and advanced features</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Multi-Device</h3>
+                    <p>Official WhatsApp Multi-Device support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

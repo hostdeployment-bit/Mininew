@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MINI INCONNU XD V3</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>MINI INCONNU</span>
+            </div>
+            <nav class="nav">
+                <a href="#bots" class="nav-item active" data-page="bots">
+                    <i class="fas fa-robot"></i> My Bots
+                </a>
+                <a href="#profile" class="nav-item" data-page="profile">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+                <a href="#servers" class="nav-item" data-page="servers">
+                    <i class="fas fa-server"></i> Servers
+                </a>
+                <a href="#commands" class="nav-item" data-page="commands">
+                    <i class="fas fa-terminal"></i> Commands
+                </a>
+                <a href="#settings" class="nav-item" data-page="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="/auth/logout" class="nav-item logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <h1 id="pageTitle">My Bots</h1>
+                <div class="user-info">
+                    <span id="userCoins">100 coins</span>
+                    <span id="userName">User</span>
+                </div>
+            </header>
+
+            <!-- Bots Page -->
+            <div id="botsPage" class="page active">
+                <div class="page-header">
+                    <h2>WhatsApp Bots</h2>
+                    <button class="btn btn-primary" onclick="showConnectBotModal()">
+                        <i class="fas fa-plus"></i> Connect New Bot
+                    </button>
+                </div>
+
+                <div class="bots-grid" id="botsGrid">
+                    <!-- Bots will be loaded here -->
+                </div>
+
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <i class="fas fa-robot"></i>
+                        <div class="stat-info">
+                            <h3 id="totalBots">0</h3>
+                            <p>Total Bots</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-plug"></i>
+                        <div class="stat-info">
+                            <h3 id="activeBots">0</h3>
+                            <p>Active Bots</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-coins"></i>
+                        <div class="stat-info">
+                            <h3 id="userCoinsCard">100</h3>
+                            <p>Coins</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div id="profilePage" class="page">
+                <h2>User Profile</h2>
+                <!-- Profile content will be loaded here -->
+            </div>
+
+            <!-- Commands Page -->
+            <div id="commandsPage" class="page">
+                <h2>Available Commands</h2>
+                <div class="commands-grid" id="commandsGrid">
+                    <!-- Commands will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connect Bot Modal -->
+    <div id="connectBotModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Connect WhatsApp Bot</h2>
+            <form id="connectBotForm">
+                <div class="form-group">
+                    <label>Phone Number (with country code)</label>
+                    <input type="text" id="botNumber" placeholder="e.g., 1234567890" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Generate Pairing Code</button>
+            </form>
+            <div id="pairingResult" class="pairing-result" style="display: none;">
+                <h3>Pairing Code Generated</h3>
+                <div class="pairing-code" id="pairingCodeDisplay"></div>
+                <p>Enter this code in your WhatsApp to connect the bot</p>
+                <button class="btn btn-secondary" onclick="copyPairingCode()">Copy Code</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bot Config Modal -->
+    <div id="botConfigModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Bot Configuration</h2>
+            <form id="botConfigForm">
+                <input type="hidden" id="configBotNumber">
+                
+                <div class="config-group">
+                    <label>
+                        <input type="checkbox" id="autoViewStatus" checked>
+                        Auto View Status
+                    </label>
+                </div>
+                
+                <div class="config-group">
+                    <label>
+                        <input type="checkbox" id="autoLikeStatus" checked>
+                        Auto Like Status
+                    </label>
+                </div>
+                
+                <div class="config-group">
+                    <label>
+                        <input type="checkbox" id="autoRecording">
+                        Auto Recording
+                    </label>
+                </div>
+                
+                <div class="config-group">
+                    <label>
+                        <input type="checkbox" id="antiCall">
+                        Anti Call
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>Work Type</label>
+                    <select id="workType">
+                        <option value="public">Public</option>
+                        <option value="private">Private</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Save Configuration</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+  </html>
