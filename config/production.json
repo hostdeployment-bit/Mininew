@@ -1,0 +1,95 @@
+{
+  "app": {
+    "name": "POPKID XMD BOT",
+    "version": "3.0.0",
+    "website": "https://your-domain.com",
+    "support": "inconnuboytech@gmail.com"
+  },
+  "server": {
+    "port": 3000,
+    "host": "0.0.0.0",
+    "sessionSecret": "CHANGE_THIS_IN_PRODUCTION_MINIMUM_32_CHARACTERS_LONG",
+    "trustProxy": true,
+    "rateLimit": {
+      "windowMs": 900000,
+      "max": 50
+    }
+  },
+  "database": {
+    "url": "mongodb+srv://vtry813_db_user:Adww47U5nVBzUqXO@inconnu-xd-v2.vqfdicq.mongodb.net/?appName=inconnu-xd-v2",
+    "options": {
+      "useNewUrlParser": true,
+      "useUnifiedTopology": true,
+      "retryWrites": true,
+      "w": "majority"
+    }
+  },
+  "security": {
+    "password": {
+      "minLength": 8,
+      "requireSpecialChar": true,
+      "requireNumbers": true,
+      "requireUppercase": true
+    },
+    "session": {
+      "secure": true,
+      "httpOnly": true,
+      "sameSite": "strict"
+    },
+    "rateLimiting": {
+      "auth": {
+        "windowMs": 900000,
+        "maxAttempts": 3
+      },
+      "api": {
+        "windowMs": 900000,
+        "maxRequests": 50
+      }
+    }
+  },
+  "logging": {
+    "level": "warn",
+    "file": {
+      "enabled": true,
+      "path": "/var/log/mini-inconnu",
+      "maxSize": "50m",
+      "maxFiles": "30d"
+    },
+    "console": {
+      "enabled": false
+    }
+  },
+  "api": {
+    "cors": {
+      "enabled": true,
+      "origin": ["https://your-domain.com", "https://www.your-domain.com"],
+      "credentials": true
+    }
+  },
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "provider": "smtp",
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false,
+      "auth": {
+        "user": "your-email@gmail.com",
+        "pass": "your-app-password"
+      }
+    }
+  },
+  "maintenance": {
+    "autoBackup": {
+      "enabled": true,
+      "interval": "0 2 * * *",
+      "retentionDays": 30
+    },
+    "cleanup": {
+      "enabled": true,
+      "interval": "0 4 * * *",
+      "maxSessionAge": 7,
+      "maxLogAge": 30
+    }
+  }
+}

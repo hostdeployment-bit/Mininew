@@ -1,0 +1,222 @@
+{
+  "app": {
+    "name": "MINI INCONNU XD V3",
+    "version": "3.0.0",
+    "description": "WhatsApp Bot with Web Dashboard",
+    "author": "Inconnu Boy Tech",
+    "website": "http://localhost:3000",
+    "support": "inconnuboytech@gmail.com"
+  },
+  "server": {
+    "port": 3000,
+    "host": "0.0.0.0",
+    "sessionSecret": "mini-inconnu-xd-v3-super-secret-key-2024",
+    "sessionMaxAge": 86400000,
+    "trustProxy": false,
+    "rateLimit": {
+      "windowMs": 900000,
+      "max": 100
+    }
+  },
+  "database": {
+    "url": "mongodb://localhost:27017/mini-inconnu",
+    "options": {
+      "useNewUrlParser": true,
+      "useUnifiedTopology": true,
+      "retryWrites": true,
+      "w": "majority"
+    },
+    "collections": {
+      "users": "users",
+      "bots": "bot_sessions",
+      "groups": "groups",
+      "servers": "servers",
+      "transactions": "transactions",
+      "commands": "command_logs"
+    }
+  },
+  "whatsapp": {
+    "browser": "Safari",
+    "browserVersion": "16.5",
+    "platform": "macOS",
+    "version": "2.2412.54",
+    "pairingCode": true,
+    "maxRetries": 3,
+    "qrTimeout": 60000,
+    "connectionTimeout": 30000
+  },
+  "bot": {
+    "defaultConfig": {
+      "AUTO_VIEW_STATUS": "true",
+      "AUTO_LIKE_STATUS": "true",
+      "AUTO_RECORDING": "false",
+      "AUTO_LIKE_EMOJI": ["🖤", "🍬", "💫", "🎈"],
+      "WORK_TYPE": "public",
+      "ANTI_CALL": "off"
+    },
+    "features": {
+      "autoReconnect": true,
+      "saveSessions": true,
+      "backupToDatabase": true,
+      "autoJoinGroups": false,
+      "newsletterFollow": false
+    },
+    "limits": {
+      "maxBotsPerUser": 5,
+      "maxGroupsPerBot": 50,
+      "maxMessageLength": 1000,
+      "maxCommandsPerMinute": 30
+    }
+  },
+  "user": {
+    "registration": {
+      "enabled": true,
+      "requireEmailVerification": false,
+      "defaultCoins": 100,
+      "referralBonus": 50,
+      "maxReferrals": 10
+    },
+    "coins": {
+      "botCreationCost": 10,
+      "serverCreationCost": 50,
+      "premiumServerCost": 100,
+      "dailyBonus": 5,
+      "maxDailyBonus": 50
+    },
+    "servers": {
+      "freeTrialDays": 3,
+      "maxFreeBots": 1,
+      "premiumMaxBots": 10,
+      "serverExpiryCheckInterval": 3600000
+    }
+  },
+  "admin": {
+    "defaultAdmin": {
+      "email": "inconnuboytech@gmail.com",
+      "password": "inconnuboy1234",
+      "name": "Inconnu Boy",
+      "coins": 999999
+    },
+    "permissions": {
+      "manageUsers": true,
+      "manageCoins": true,
+      "viewStatistics": true,
+      "systemControls": true
+    }
+  },
+  "security": {
+    "password": {
+      "minLength": 6,
+      "requireSpecialChar": false,
+      "requireNumbers": false,
+      "requireUppercase": false
+    },
+    "session": {
+      "secure": false,
+      "httpOnly": true,
+      "sameSite": "lax"
+    },
+    "rateLimiting": {
+      "auth": {
+        "windowMs": 900000,
+        "maxAttempts": 5
+      },
+      "api": {
+        "windowMs": 900000,
+        "maxRequests": 100
+      },
+      "bots": {
+        "windowMs": 60000,
+        "maxCommands": 30
+      }
+    }
+  },
+  "logging": {
+    "level": "info",
+    "file": {
+      "enabled": true,
+      "path": "./logs",
+      "maxSize": "10m",
+      "maxFiles": "7d"
+    },
+    "console": {
+      "enabled": true,
+      "colorize": true
+    },
+    "database": {
+      "enabled": true,
+      "collections": {
+        "errors": "error_logs",
+        "commands": "command_logs",
+        "sessions": "session_logs"
+      }
+    }
+  },
+  "api": {
+    "endpoints": {
+      "auth": "/auth",
+      "bots": "/api/bots",
+      "admin": "/api/admin",
+      "profile": "/api/profile",
+      "servers": "/api/servers"
+    },
+    "cors": {
+      "enabled": true,
+      "origin": ["http://localhost:3000", "http://127.0.0.1:3000"],
+      "credentials": true
+    }
+  },
+  "web": {
+    "theme": {
+      "primary": "#667eea",
+      "secondary": "#764ba2",
+      "accent": "#f093fb",
+      "success": "#48bb78",
+      "warning": "#ed8936",
+      "error": "#f56565",
+      "background": "#f7fafc",
+      "text": "#2d3748"
+    },
+    "features": {
+      "darkMode": true,
+      "realTimeUpdates": true,
+      "botStatusMonitoring": true,
+      "commandHistory": true,
+      "exportData": false
+    }
+  },
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "provider": "smtp",
+      "from": "noreply@mini-inconnu.com"
+    },
+    "webPush": {
+      "enabled": false
+    },
+    "botEvents": {
+      "connection": true,
+      "disconnection": true,
+      "errors": true,
+      "commands": false
+    }
+  },
+  "maintenance": {
+    "autoBackup": {
+      "enabled": true,
+      "interval": "0 2 * * *",
+      "retentionDays": 7
+    },
+    "cleanup": {
+      "enabled": true,
+      "interval": "0 3 * * *",
+      "maxSessionAge": 30,
+      "maxLogAge": 7
+    },
+    "monitoring": {
+      "enabled": true,
+      "checkInterval": 300000,
+      "restartOnFailure": true
+    }
+  }
+}

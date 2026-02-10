@@ -1,0 +1,108 @@
+{
+  "enabled": true,
+  "autoLoad": true,
+  "pluginsDirectory": "./server/plugins",
+  "categories": {
+    "admin": {
+      "enabled": true,
+      "description": "Administrative commands for bot owners",
+      "restricted": true
+    },
+    "group": {
+      "enabled": true,
+      "description": "Group management commands",
+      "restricted": false
+    },
+    "tools": {
+      "enabled": true,
+      "description": "Utility tools and features",
+      "restricted": false
+    },
+    "fun": {
+      "enabled": true,
+      "description": "Entertainment and games",
+      "restricted": false
+    },
+    "config": {
+      "enabled": true,
+      "description": "Bot configuration commands",
+      "restricted": false
+    }
+  },
+  "commands": {
+    "ping": {
+      "enabled": true,
+      "category": "tools",
+      "description": "Test bot response time",
+      "cooldown": 3000,
+      "usage": ".ping"
+    },
+    "menu": {
+      "enabled": true,
+      "category": "general",
+      "description": "Show all available commands",
+      "cooldown": 5000,
+      "usage": ".menu"
+    },
+    "sticker": {
+      "enabled": true,
+      "category": "tools",
+      "description": "Create sticker from image/video",
+      "cooldown": 5000,
+      "usage": ".sticker [packname] [author]"
+    },
+    "ai": {
+      "enabled": true,
+      "category": "fun",
+      "description": "Chat with AI",
+      "cooldown": 10000,
+      "usage": ".ai <question>"
+    },
+    "broadcast": {
+      "enabled": true,
+      "category": "admin",
+      "description": "Broadcast message to all groups",
+      "cooldown": 60000,
+      "usage": ".broadcast <message>",
+      "restricted": true
+    },
+    "promote": {
+      "enabled": true,
+      "category": "group",
+      "description": "Promote user to group admin",
+      "cooldown": 5000,
+      "usage": ".promote @user",
+      "groupOnly": true,
+      "adminOnly": true
+    },
+    "welcome": {
+      "enabled": true,
+      "category": "group",
+      "description": "Toggle welcome messages",
+      "cooldown": 5000,
+      "usage": ".welcome <on/off>",
+      "groupOnly": true,
+      "adminOnly": true
+    },
+    "game": {
+      "enabled": true,
+      "category": "fun",
+      "description": "Play fun games",
+      "cooldown": 3000,
+      "usage": ".game <dice|dart|basketball|football|slot|roulette>"
+    }
+  },
+  "settings": {
+    "maxPlugins": 50,
+    "reloadOnChange": true,
+    "logExecutions": true,
+    "defaultCooldown": 3000,
+    "allowCustomPlugins": false
+  },
+  "permissions": {
+    "owner": ["*"],
+    "admin": ["admin", "group", "tools", "fun", "config"],
+    "user": ["tools", "fun", "config"],
+    "groupAdmin": ["group", "tools", "fun"]
+  }
+      }
